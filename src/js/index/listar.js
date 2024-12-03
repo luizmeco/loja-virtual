@@ -25,7 +25,7 @@ export async function listarProdutos(produtos) {
                             ).toFixed(2)}
                         </span>
                         <span class="text-success">
-                            %${item.discountPercentage} OFF
+                            ${item.discountPercentage}% OFF
                         </span>
                     </span>
                   </div>
