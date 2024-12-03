@@ -4,7 +4,7 @@ export async function listarProdutos(produtos) {
 
     await produtos.forEach((item, index) => {
       const cardHtml = `
-            <a href="#" class="produtos card col-4" style="width: 18rem">
+            <a href="./src/pages/detalhes-produtos.html?id=${item.id}" class="produtos card col-4" style="width: 18rem">
                 <img src="${item.thumbnail}" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">${item.title}</h5>
