@@ -1,15 +1,15 @@
-export async function coletarDetalhes(produtos){
-    // Captura a parte da URL após o '?'
-    const urlParams = new URLSearchParams(window.location.search);
-  
-    // Pega o valor do parâmetro 'id'
-    const idProduto = urlParams.get('id');
-  
-    // Exibe o valor do id
-    const produto = produtos.find(p => p.id == idProduto)
-    console.log(produto.images.length)
-  
-    const detalhesProdutoHtml = `
+import { verificarLogin } from "./verificarLogin.js";
+export async function coletarDetalhes(produtos) {
+  // Captura a parte da URL após o '?'
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // Pega o valor do parâmetro 'id'
+  const idProduto = urlParams.get("id");
+
+  // Exibe o valor do id
+  const produto = produtos.find((p) => p.id == idProduto);
+
+  const detalhesProdutoHtml = `
     <div class="card">
     <div class="row">
       <div class="card col-12 col-md-6">
@@ -54,15 +54,19 @@ export async function coletarDetalhes(produtos){
               R$ ${produto.price}
             </span>
             <span class="fs-1">
-              R$ ${( produto.price - produto.price * (produto.discountPercentage /
-              100) ).toFixed(2)}
+              R$ ${(
+                produto.price -
+                produto.price * (produto.discountPercentage / 100)
+              ).toFixed(2)}
             </span>
             <span class="text-success fs-3">
               ${produto.discountPercentage}% OFF
             </span>
             <span class="fs-5 mt-5">${produto.description}</span>
-            <span class="mt-5 fs-4 card text-center p-2">Ainda restam ${produto.stock} unidades</span>
-            <button class="btn btn-primary">
+            <span class="mt-5 fs-4 card text-center p-2">Ainda restam ${
+              produto.stock
+            } unidades</span>
+            <button id="comprar" class="btn btn-primary">
                 <div class="d-flex align-items-center justify-content-center gap-5">
                     <span class="fs-1">Comprar Agora!</span>
                 <i class="fa-solid fa-cart-shopping fs-3"></i>
@@ -73,41 +77,39 @@ export async function coletarDetalhes(produtos){
       </div>
     </div>
   </div>
-    `
-    $("#container-produto").append(detalhesProdutoHtml);
-    const imagemProdutos = produto.images
-    if (produto.images.length > 1){
-      imagemProdutos.forEach((imagem, index)=>{
-        if(index == 0){
-          var imagemHtml = `
+    `;
+  $("#container-produto").append(detalhesProdutoHtml);
+  const imagemProdutos = produto.images;
+  if (produto.images.length > 1) {
+    imagemProdutos.forEach((imagem, index) => {
+      if (index == 0) {
+        var imagemHtml = `
             <div class="carousel-item active">
               <img
                 src="${imagem}"
               />
             </div>
-        `
-        }
-        else{
-          var imagemHtml = `
+        `;
+      } else {
+        var imagemHtml = `
             <div class="carousel-item">
               <img
                 src="${imagem}"
               />
             </div>
-        `
-        }
-        $("#images-carousel").append(imagemHtml)
-      })
+        `;
       }
-      else{
-        var imagemHtml = `
+      $("#images-carousel").append(imagemHtml);
+    });
+  } else {
+    var imagemHtml = `
             <div class="carousel-item active">
               <img
                 src="${imagemProdutos}"
               />
             </div>
-        `
-        $("#images-carousel").append(imagemHtml)
-
-      }
+        `;
+    $("#images-carousel").append(imagemHtml);
   }
+  verificarLogin()
+}

@@ -1,0 +1,22 @@
+.card-pix, .card-cartao{
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+}
+
+.card-pix:hover {
+    transform: scale(1.02);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.492);
+}
+.card-cartao:hover {
+    transform: scale(1.02);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.492);
+}
+
+.progress-bar{
+    width: 0%;
+    transition: width 1s ease;
+}
+
+.progress-bar.animate{
+    width: 25%;
+}
