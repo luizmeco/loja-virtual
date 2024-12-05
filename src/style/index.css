@@ -1,3 +1,7 @@
+body{
+    background-color: black;
+}
+
 .produtos{
     text-decoration: none;
     transition: all 0.3s ease-in;
@@ -6,4 +10,28 @@
 .produtos:hover {
     transform: scale(1.02);
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.492);
+}
+
+.navbar-collapse {
+    transition: all 0.5s ease-in-out; /* Controla a altura do menu ao abrir/fechar */
+  }
+  
+.navbar-collapse.show {
+    max-height: 500px; /* Altura máxima ao abrir */
+}
+  
+.navbar-toggler {
+    border: none;
+    transition: transform 0.3s ease; /* Animação para o botão */
+  }
+  
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+.navbar-toggler.collapsed {
+    transform: rotate(0); /* Estado padrão */
+}
+  
+.navbar-toggler:not(.collapsed) {
+    transform: rotate(90deg); /* Rotação ao abrir o menu */
 }

@@ -20,10 +20,14 @@ export async function checkoutCartao() {
       cvvCartao.length == 3 &&
       nomeCartao != ""
     ) {
-      finalizarCompra()
-      console.log("tudo certo");
+      finalizarCompra();
     } else {
-      console.log("errado");
+      $("#input-numero-cartao").val('');
+      $("#input-data-cartao").val('');
+      $("#input-cvv-cartao").val('');
+      $("#input-nome-cartao").val('');
+      $("#input-nome-cartao").focus()
+      $("#cartao-incorreto").html('Insira um cartão válido')
     }
   });
 }
