@@ -20,3 +20,11 @@
 .progress-bar.animate{
     width: 25%;
 }
+
+a{
+    cursor: pointer;
+}
+
+.disabled, #btn-copy {
+    border: none;
+}

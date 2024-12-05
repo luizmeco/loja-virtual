@@ -111,5 +111,5 @@ export async function coletarDetalhes(produtos) {
         `;
     $("#images-carousel").append(imagemHtml);
   }
-  verificarLogin()
+  verificarLogin(produtos)
 }

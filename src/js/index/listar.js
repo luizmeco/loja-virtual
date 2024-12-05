@@ -1,3 +1,4 @@
+
 export async function listarProdutos(produtos) {
     var rowHtml = `<div class="row justify-content-around g-2">`;
     var contador = 0;
@@ -43,3 +44,4 @@ export async function listarProdutos(produtos) {
       }
     });
   }
+
